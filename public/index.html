@@ -6,24 +6,69 @@
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet">
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
+    <!--<script type="text/javascript" src="/scripts/client.js"></script>-->
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+    <script>$(document).ready(function() {
+      console.log(this);
+    });</script>
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
-      <span>tweeter</span>
+    <div class="topnav">
+      <nav>
+        <span>Tweeter</span>
+        <span class="leftside-nav"><strong>Write</strong> a tweet</span>
     </nav>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <div>
+        <img src="/images/profile-hex.png"> 
+      </div>
+      <br>
+      <div class="header-text"><strong>Your</strong> Name</div>
+  </header>
 
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="container">
+      <section class="new-tweet">
+        <form action="/tweets" method="POST">
+          <textarea name="text" placeholder="What are you humming about?"></textarea>
+          <button class="submit-button" type="submit">Tweet</button>
+          <output name="counter" class="counter" for="tweet-text">140</output>
+        </form>
+      </section>
+
+      <!--Tweets section-->
+      <div class="tweet-container">
+        <article >
+          <div class="tweet-content">
+            <p>
+              Tweet tweet.
+            </p>
+          </div>
+
+        </article>
+
+      </div>
+
+    </main>
+
   </body>
 </html>
