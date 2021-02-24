@@ -1,0 +1,18 @@
+header {
+  height: 400px;
+  width: 100%;
+  padding: 40px;
+  text-align: center;
+  background-color:#db9a22;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  color: #FFFFFF;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 30px;
+};
+
+.header-text {
+  padding: 10px;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #d82121 !important;
+  font-size: 60px;
+};
