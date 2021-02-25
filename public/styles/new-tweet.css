@@ -1,4 +1,8 @@
 .new-tweet {
+  display: flex;
+  justify-content: center;
+  height: 130px;
+  width: 100%;
   border-radius: 5px;
   padding-top: 6px;
   background-color: #f4f1ec;
@@ -6,13 +10,23 @@
   margin: 0 2em;
 }
 
+form {
+  width: 100%;
+}
+
 textarea {
+  display: flex;
   padding: 4px;
   width: 100%;
 }
 
+.button-counter {
+  display: flex;
+  justify-content: space-between;
+}
+
 .counter {
-  float: right;
+  display: flex;
   font-family: "Bungee", sans-serif;
   background-color:#f4f1ec;
   color: #080707;
@@ -20,8 +34,7 @@ textarea {
 }
 
 .submit-button {
-  float: left;
-  overflow: visible;
+  display: flex;
   font-family: "Bungee", sans-serif;
   background-color:#4056A1;
   color: #FFFFFF;
