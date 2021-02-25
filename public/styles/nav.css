@@ -1,27 +1,25 @@
-.topnav {
+.navbar {
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  top: 0;
-  position: fixed;
-  height: 120px;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 80px;
   width: 100%;
-  background-color:#4056A1;
+  background-color: #4056A1;
   color: #FFFFFF;
   font-family: "Bungee", sans-serif;
-  padding: 35px 35px;
+  top: 0;
+  position: fixed;
+  padding: 0 2em 0 2em;
 }
 
-.topnav-right{
+.navbar-left{
   display: flex;
-  /* justify-content: flex-start; */
   font-family: "Bungee", sans-serif;
-  font-size: 20;
+  font-size: 60px;
 }
 
-.topnav-left{
+.navbar-right{
   display: flex;
-  /* justify-content: flex-end; */
   font-family: "Source Sans Pro", sans-serif;
-  font-size: 20;
+  font-size: 50px;
 }
