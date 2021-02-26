@@ -27,13 +27,12 @@ const createTweetElement = function (tweet) {
   </article>
 
   `
-
   return $tweet;
 
 };
 
 
-const renderTweets = function (tweets) {
+const renderTweets = function(tweets) {
   tweets = tweets.reverse();
 
   let renderedTweets = "";
@@ -49,7 +48,7 @@ const renderTweets = function (tweets) {
 
 }
 
-renderTweets(data);
+// renderTweets(data);
 
 //
 $(document).ready(function () {
@@ -59,16 +58,48 @@ $(document).ready(function () {
 
     let formInput = $(this).serialize();
 
+    if ($("textarea").val() === "") {
+      return alert("Please enter a tweet");
+    } else if ($("textarea").val().length > 140) {
+      return alert("Your tweet must be under 140 charactres");
+    } else {
+      $.ajax({
+        method: "POST",
+        url: "/tweets",
+        data: formInput,
+      }).done(function() {
+        console.log('Ajax post request successful');
+      });
+    }
+  });
+  
+  function loadTweets() {
     $.ajax({
-      method: "POST",
+      method: "GET",
       url: "/tweets",
-      data: formInput,
-    }).done(function(data) {
-      console.log('Ajax request successful');
+      dataType: "json",
+      success: function(result) {
+        console.log("Ajax get request successful");
+        renderTweets(result);
+      }
     });
+  }
 
-    
+  loadTweets();
+  $("button").click(function(){
+    $("#result").html(ajax_load).load(loadUrl);
   });
 
 });
+
+const formValidation = function () {
+  if ($("textarea").val() === " ") {
+    $("#errors-emptyform").slideDown();
+  } else if ($("textarea").val().length > 140) {
+    $("#errors-toomanycharacters").slideDown();
+  }
+  return true;
+};
+
+formValidation();
 

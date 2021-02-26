@@ -40,3 +40,13 @@ textarea {
   color: #FFFFFF;
   padding: 0.45%
 }
+
+.errors {
+  display: none;
+  /* flex-direction: column; */
+  /* align-items: stretch; */
+  color: crimson;
+  border: 1px solid crimson;
+  font-weight: 300;
+  margin: 0 10px;
+}
