@@ -44,8 +44,17 @@
   </header>
 
     <!-- Page-specific (main) content here -->
+
     <main class="container">
       <section class="new-tweet">
+
+        <!--Error logic-->
+        <div class="errors">
+          <p id="errors-emptyform">Please enter a tweet.</p>
+          <p id="errors-toomanycharacters">Your tweet must be under 140 characters.</p>
+        </div>
+
+        <!--New Tweets form-->
         <form action="/tweets" method="POST">
           <textarea name="text" placeholder="What are you humming about?"></textarea>
           <div class="button-counter">
@@ -53,27 +62,12 @@
           <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+
       </section>
 
       <!--Tweets section-->
       <div id="tweets-container">
-        <article class="tweet-article">
-          <header class ="tweet-header">
-            <h1 class="tweet-username">Ms. Kitty</h1>
-            <h1 class="tweet-username">@KittyGurl</h1>
-          </header>
-
-          <div class="tweet-content">
-            <p>
-              Here's my groundbreaking take on world issues.
-            </p>
-          </div>
-
-          <footer class="footer">
-            <p>10 days ago</p>
-          </footer>
-        </article>
-
+        <!--Rendered tweets go here-->
       </div>
 
     </main>
