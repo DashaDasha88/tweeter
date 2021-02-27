@@ -3,16 +3,29 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+function currentTime(date) {
+  let = Date.now();
+  let secondsAgo = (let - date) / 1000 / 60;
+  let minutesAgo = (let - date) / 1000 / 60;
+  let hoursAgo = (let - date) / 1000 / 60 / 60;
+  if (minutesAgo < 1) {
+    return `${Math.floor(secondsAgo)} seconds ago`;
+  } else if (minutesAgo > 1 && minutesAgo < 60) {
+    return `${Math.floor(minutesAgo)} minutes ago`;
+  } else if (minutesAgo > 60 && hoursAgo < 24) {
+    return `${Math.floor(hoursAgo)} hours ago`;
+  } else if (hoursAgo > 24) {
+    return `${Math.floor(hoursAgo / 24)} days ago`;
+  }
+}
 
 const createTweetElement = function (tweet) {
-
-  const date = Date(tweet.created_at).toString();
 
   let $tweet = `
   <article class="tweet-article">
     <header class ="tweet-header">
-      <h1 class="tweet-username">${tweet.user.name}</h1>
-      <h1 class="tweet-username">${tweet.user.handle}</h1>
+      <h1 class="tweet-username1">${tweet.user.name}</h1>
+      <h1 class="tweet-username2">${tweet.user.handle}</h1>
     </header>
 
     <div class="tweet-content">
@@ -22,7 +35,12 @@ const createTweetElement = function (tweet) {
     </div>
 
     <footer class="footer">
-      <span id="date">${date}</span>
+      <span id="date">${currentTime(tweet.created_at)}</span>
+      <span class="tweet-flags">
+        <i class="fa fa-flag" aria-hidden="true"></i>
+        <i class="fa fa-retweet" aria-hidden="true"></i>
+        <i class="fa fa-heart" aria-hidden="true"></i>
+      </span>
     </footer>
   </article>
 
@@ -57,18 +75,19 @@ $(document).ready(function () {
     event.preventDefault();
 
     let formInput = $(this).serialize();
+    console.log("Form input", formInput);
 
     if ($("textarea").val() === "") {
-      return alert("Please enter a tweet");
+      $(".errors").html('<p id="errors-emptyform">Please enter a tweet.</p>');
     } else if ($("textarea").val().length > 140) {
-      return alert("Your tweet must be under 140 charactres");
+      $(".errors").html('<p id="errors-toomanycharacters">Your tweet must be under 140 characters.</p>');
     } else {
       $.ajax({
         method: "POST",
         url: "/tweets",
         data: formInput,
       }).done(function() {
-        console.log('Ajax post request successful');
+        loadTweets();
       });
     }
   });
@@ -79,16 +98,12 @@ $(document).ready(function () {
       url: "/tweets",
       dataType: "json",
       success: function(result) {
-        console.log("Ajax get request successful");
         renderTweets(result);
       }
     });
   }
 
   loadTweets();
-  $("button").click(function(){
-    $("#result").html(ajax_load).load(loadUrl);
-  });
 
 });
 
@@ -101,5 +116,4 @@ const formValidation = function () {
   return true;
 };
 
-formValidation();
 
