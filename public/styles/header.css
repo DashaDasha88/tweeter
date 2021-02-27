@@ -1,12 +1,25 @@
 header {
-  display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  /* align-items: center; */
+  height: 400px; 
   width: 100%;
-  padding-top: 8%;
-  padding-bottom: 3%;
+  padding-top: 5%;
+  /* padding-bottom: 3%; */
   background-color:#db9a22;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
   color: #FFFFFF;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 30px;
-};
+}
+
+.header-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -25,9 +25,6 @@ const createTweetElement = function(tweet) {
   const $tweet = `
   <article class="tweet-article">
     <header class ="tweet-header">
-      <span class="tweet-icon">
-        <i class="fas fa-ghost" aria-hidden="true"></i>
-      </span>
         <h1 class="tweet-username1">${tweet.user.name}</h1>
         <h1 class="tweet-username2">${tweet.user.handle}</h1>
     </header>
@@ -40,7 +37,7 @@ const createTweetElement = function(tweet) {
 
     <footer class="footer">
       <span id="date">${currentTime(tweet.created_at)}</span>
-      <span class="tweet-flags">
+      <span>
         <i class="fa fa-flag" aria-hidden="true"></i>
         <i class="fa fa-retweet" aria-hidden="true"></i>
         <i class="fa fa-heart" aria-hidden="true"></i>
