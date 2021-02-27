@@ -3,11 +3,12 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-function currentTime(date) {
-  let = Date.now();
-  let secondsAgo = (let - date) / 1000 / 60;
-  let minutesAgo = (let - date) / 1000 / 60;
-  let hoursAgo = (let - date) / 1000 / 60 / 60;
+const currentTime = function(date) {
+
+  const currentDate = Date.now();
+  const secondsAgo = (currentDate - date) / 1000 / 60;
+  const minutesAgo = (currentDate - date) / 1000 / 60;
+  const hoursAgo = (currentDate - date) / 1000 / 60 / 60;
   if (minutesAgo < 1) {
     return `${Math.floor(secondsAgo)} seconds ago`;
   } else if (minutesAgo > 1 && minutesAgo < 60) {
@@ -17,15 +18,18 @@ function currentTime(date) {
   } else if (hoursAgo > 24) {
     return `${Math.floor(hoursAgo / 24)} days ago`;
   }
-}
+};
 
-const createTweetElement = function (tweet) {
+const createTweetElement = function(tweet) {
 
-  let $tweet = `
+  const $tweet = `
   <article class="tweet-article">
     <header class ="tweet-header">
-      <h1 class="tweet-username1">${tweet.user.name}</h1>
-      <h1 class="tweet-username2">${tweet.user.handle}</h1>
+      <span class="tweet-icon">
+        <i class="fas fa-ghost" aria-hidden="true"></i>
+      </span>
+        <h1 class="tweet-username1">${tweet.user.name}</h1>
+        <h1 class="tweet-username2">${tweet.user.handle}</h1>
     </header>
 
     <div class="tweet-content">
@@ -44,7 +48,7 @@ const createTweetElement = function (tweet) {
     </footer>
   </article>
 
-  `
+  `;
   return $tweet;
 
 };
@@ -57,24 +61,24 @@ const renderTweets = function(tweets) {
 
   for (tweet of tweets) {
     renderedTweets += createTweetElement(tweet);
-    console.log(renderedTweets)
+    console.log(renderedTweets);
   }
 
-  $(document).ready(function(){
-  $("#tweets-container").prepend($(renderedTweets));
+  $(document).ready(function() {
+    $("#tweets-container").prepend($(renderedTweets));
   });
 
-}
+};
 
 // renderTweets(data);
 
 //
-$(document).ready(function () {
+$(document).ready(function() {
 
   $("form").on("submit", function(event) {
     event.preventDefault();
 
-    let formInput = $(this).serialize();
+    const formInput = $(this).serialize();
     console.log("Form input", formInput);
 
     if ($("textarea").val() === "") {
@@ -92,7 +96,7 @@ $(document).ready(function () {
     }
   });
   
-  function loadTweets() {
+  const loadTweets = function() {
     $.ajax({
       method: "GET",
       url: "/tweets",
@@ -101,19 +105,10 @@ $(document).ready(function () {
         renderTweets(result);
       }
     });
-  }
+
+  };
 
   loadTweets();
 
 });
-
-const formValidation = function () {
-  if ($("textarea").val() === " ") {
-    $("#errors-emptyform").slideDown();
-  } else if ($("textarea").val().length > 140) {
-    $("#errors-toomanycharacters").slideDown();
-  }
-  return true;
-};
-
 
