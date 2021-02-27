@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
@@ -19,6 +19,9 @@
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+    <!--Font Awesome-->
+    <script src="https://use.fontawesome.com/617b3fb991.js"></script>
+
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
@@ -31,7 +34,9 @@
     <!-- Top nav bar (fixed) -->
     <nav class="navbar">
       <span class="navbar-left">Tweeter</span>
-      <span class="navbar-right">Write a tweet</span>
+      <a href="#new_tweet" class="navbar-right">
+        Write a tweet
+      </a>
     </nav>
 
     <!-- Header -->
@@ -39,9 +44,8 @@
       <div>
         <img src="/images/profile-hex.png"> 
       </div>
-      <br>
-      <div class="header-text"><strong>Your</strong> Name</div>
-  </header>
+      <div>Your Name</div>
+    </header>
 
     <!-- Page-specific (main) content here -->
 
@@ -50,13 +54,12 @@
 
         <!--Error logic-->
         <div class="errors">
-          <p id="errors-emptyform">Please enter a tweet.</p>
-          <p id="errors-toomanycharacters">Your tweet must be under 140 characters.</p>
         </div>
 
         <!--New Tweets form-->
-        <form action="/tweets" method="POST">
-          <textarea name="text" placeholder="What are you humming about?"></textarea>
+        <form class="new-tweet" action="/tweets" method="POST">
+          <div id="new_tweets"></div>
+          <textarea id="new-tweet" class="textarea" name="text" placeholder="What are you humming about?"></textarea>
           <div class="button-counter">
           <button class="submit-button" type="submit">Tweet</button>
           <output name="counter" class="counter" for="tweet-text">140</output>
