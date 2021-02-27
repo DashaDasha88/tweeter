@@ -6,10 +6,9 @@
 .tweet-content {
   display: flex;
   padding: 1px;
-  margin-top: 10px;
   width: 100%;
-  border-bottom: 1px solid black;
-  background-color: white;
+  border-bottom: 3px solid black;
+  background-color: #f4f1ec;
   font-size: 20px;
   text-align: left;
 }
@@ -18,10 +17,12 @@
   display: flex;
   flex-direction: column;
   border-radius: 5px;
-  border: 1px solid black;
+  border: 3px solid black;
+  border: 100%;
   height: 100%;
   width: 800px;
-  margin: 0;
+  margin: 15px auto;
+  margin-top: 25px auto;
 }
 
 .footer {
@@ -43,7 +44,25 @@
   font-family: "Source Sans Pro", sans-serif;
 }
 
-.tweet-username {
+.tweet-username1 {
   display: flex;
+  flex-direction: row;
   font-size: 17px;
- }*/
+ }
+
+ .tweet-username2 {
+  display: flex;
+  flex-direction: row;
+  color: grey;
+  font-size: 17px;
+ }
+
+ .tweet-icon {
+   display: flex;
+   flex-direction: row;
+ }
+
+ .tweet-flags {
+   display: flex;
+   justify-content: flex-end;
+ }

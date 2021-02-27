@@ -1,13 +1,14 @@
 .new-tweet {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   height: 130px;
-  width: 100%;
-  border-radius: 5px;
+  width: 90%;
   padding-top: 6px;
   background-color: #f4f1ec;
+  border: none;
   font-family: "Source Sans Pro", sans-serif;
-  margin: 0 2em;
+  margin: 0 auto;
 }
 
 form {
@@ -18,6 +19,8 @@ textarea {
   display: flex;
   padding: 4px;
   width: 100%;
+  background-color: #f4f1ec;
+  border-bottom: 3px solid black;
 }
 
 .button-counter {
@@ -42,11 +45,9 @@ textarea {
 }
 
 .errors {
-  display: none;
-  /* flex-direction: column; */
-  /* align-items: stretch; */
+  display: flex;
+  justify-content: center;
   color: crimson;
-  border: 1px solid crimson;
   font-weight: 300;
   margin: 0 10px;
 }
