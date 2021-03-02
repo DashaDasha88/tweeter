@@ -28,7 +28,8 @@ const createTweetElement = function(tweet) {
 
   const $tweet = `
   <article class="tweet-article">
-    <header class ="tweet-header">
+    <header class="tweet-header">
+        <img class="tweet-icon" src="/images/faceicon.png">
         <h1 class="tweet-username1">${tweet.user.name}</h1>
         <h1 class="tweet-username2">${tweet.user.handle}</h1>
     </header>

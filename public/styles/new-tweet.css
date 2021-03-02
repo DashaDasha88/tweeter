@@ -6,7 +6,6 @@
   width: 90%;
   padding-top: 6px;
   background-color: #f4f1ec;
-  border: none;
   font-family: "Source Sans Pro", sans-serif;
   margin: 0 auto;
 }
@@ -15,11 +14,12 @@ form {
   width: 100%;
 }
 
-textarea {
+#new-tweet{
   display: flex;
   padding: 4px;
   width: 100%;
   background-color: #f4f1ec;
+  border: none;
   border-bottom: 3px solid black;
 }
 
