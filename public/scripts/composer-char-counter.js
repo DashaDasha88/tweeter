@@ -1,3 +1,4 @@
+//Function for counting down the number of tweet characters as they get entered
 $(document).ready(function() {
   $("textarea").on("input", function () {
     const maxChars = 140

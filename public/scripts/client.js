@@ -3,6 +3,9 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
+ 
+//Creates the "time ago" stamp for the tweets based on time it was created
 const currentTime = function(date) {
 
   const currentDate = Date.now();
@@ -20,6 +23,7 @@ const currentTime = function(date) {
   }
 };
 
+//Adds the HTML to the list of tweets, which would be populated by the usernames, text, and time stamp
 const createTweetElement = function(tweet) {
 
   const $tweet = `
@@ -50,26 +54,16 @@ const createTweetElement = function(tweet) {
 
 };
 
-
-const renderTweets = function(tweets) {
-  tweets = tweets.reverse();
-
-  let renderedTweets = "";
-
-  for (tweet of tweets) {
-    renderedTweets += createTweetElement(tweet);
-    console.log(renderedTweets);
-  }
-
-  $(document).ready(function() {
-    $("#tweets-container").prepend($(renderedTweets));
-  });
+//Renders the latest tweet onto the page
+const renderTweets = function(tweet) {
+  $('#tweets-container').empty();
+  tweet.forEach( (tweets) => {
+    $('#tweets-container').prepend(createTweetElement(tweets));
+  })
 
 };
 
-// renderTweets(data);
-
-//
+//Contains: 1)get and post logic 2)tweet validation logic 3)logic for loading tweets without page refresh
 $(document).ready(function() {
 
   $("form").on("submit", function(event) {
